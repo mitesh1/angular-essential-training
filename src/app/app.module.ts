@@ -6,10 +6,13 @@ import { MediaItemListComponent } from './media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {lookupListToken, lookupLists} from './Providers'
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -21,6 +24,10 @@ import { MediaItemFormComponent } from './media-item-form.component';
   ],
   bootstrap: [
     AppComponent
+  ],
+  providers: [
+    {provide: lookupListToken, useValue: lookupLists}
   ]
+ 
 })
 export class AppModule {}
