@@ -53,8 +53,11 @@ export class MediaItemService {
     }
   ];
 
-  get() {
-    return this.http.get<MediaItemsResponse>('mediaitems')
+  get(medium) {
+    let getOptions = {
+      params : {medium : medium}
+    }
+    return this.http.get<MediaItemsResponse>('mediaitems',getOptions )
       .pipe(
         map((response: MediaItemsResponse) => {
           return response.mediaItems;
